@@ -1,0 +1,23 @@
+# Environment and credentials
+.env
+.env.*
+!.env.example
+.npmrc
+credentials.json
+secrets.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local editor and operating system files
+.DS_Store
+.vscode/
+.idea/
+
+# Dependencies, generated output, and logs
+node_modules/
+dist/
+coverage/
+*.log
+npm-debug.log*
