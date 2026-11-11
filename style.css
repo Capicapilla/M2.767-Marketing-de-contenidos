@@ -152,8 +152,21 @@ figcaption > span:first-child { margin-right: .55rem; color: var(--accent); font
 .track::-webkit-scrollbar { display: none; }
 .carousel-card { flex: 0 0 calc((100% - 1.7rem) / 3); min-width: 0; min-height: 200px; padding: 15px; scroll-snap-align: start; background: #f4f3ee; }
 .card-image-link { display: block; overflow: hidden; aspect-ratio: 1.55; background: #f1f0e9; }
-.card-image { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.card-image { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; transition: transform .35s ease; }
 .card-image-link:hover .card-image { transform: scale(1.035); }
+.scene-living { background: linear-gradient(180deg, transparent 70%, #b39c7c 70%), linear-gradient(90deg, #e8dfd1 0 68%, #d2c2aa 68%); }
+.scene-plants { background: linear-gradient(180deg, transparent 70%, #b89e7a 70%), linear-gradient(90deg, #e3e3d8 0 60%, #c7d0bc 60%); }
+.scene-design { background: linear-gradient(180deg, transparent 70%, #aa9478 70%), linear-gradient(90deg, #d9d4c7 0 70%, #b3b69f 70%); }
+.scene-window { position: absolute; top: 12%; right: 12%; width: 27%; height: 43%; border: 5px solid rgba(255,255,255,.7); background: linear-gradient(145deg, #c8d7ce, #f3e7d4); box-shadow: 0 4px 12px #76634a22; }
+.scene-object { position: absolute; z-index: 1; bottom: 17%; left: 17%; width: 48%; height: 30%; border-radius: 20px 20px 7px 7px; background: #a56e55; box-shadow: inset 0 -9px #8e5e49, 0 9px 0 -5px #72533e; }
+.scene-object::before { position: absolute; top: 45%; left: 6%; width: 88%; height: 3px; background: #ffffff55; content: ""; }
+.scene-plants .scene-object { bottom: 11%; left: 40%; width: 22%; height: 24%; border-radius: 4px 4px 14px 14px; background: #b66f4c; box-shadow: none; }
+.scene-design .scene-object { bottom: 15%; left: 24%; width: 34%; height: 36%; border-radius: 48% 48% 8px 8px; background: #a68455; box-shadow: inset 0 -8px #8b704b, 0 8px 0 -5px #72533e; }
+.scene-plant { position: absolute; z-index: 2; right: 19%; bottom: 13%; width: 9px; height: 34%; border-radius: 50%; background: #69775b; transform: rotate(12deg); }
+.scene-plant::before, .scene-plant::after { position: absolute; top: 0; left: -10px; width: 20px; height: 38px; border-radius: 100% 0 100% 0; background: #839071; content: ""; transform: rotate(-35deg); }
+.scene-plant::after { top: 12px; left: 1px; background: #617657; transform: rotate(45deg) scale(.8); }
+.scene-plants .scene-plant { right: 43%; bottom: 32%; height: 45%; }
+.scene-design .scene-window { right: 14%; width: 22%; }
 .card-copy { padding: 1rem 1.15rem 1.2rem; }
 .card-number { color: var(--accent); font-size: .68rem; font-weight: 700; letter-spacing: .12em; }
 .carousel-card h3 { margin: .6rem 0 .35rem; font: 500 1.08rem/1.35 var(--display); }
@@ -172,36 +185,33 @@ figcaption > span:first-child { margin-right: .55rem; color: var(--accent); font
 .instagram-section { margin-top: 4.5rem; padding-top: 1.7rem; border-top: 1px solid var(--line); }
 .instagram-profile { margin-bottom: 1.5rem; color: var(--ink); font-size: .85rem; text-decoration: none; }
 .instagram-profile:hover { color: var(--accent); }
-.instagram-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 1.25rem; }
-.instagram-post { min-width: 0; padding: .5rem; border: 1px solid var(--line); background: white; }
-.instagram-media {
-  display: block;
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: 100% !important;
-  margin: 0 auto !important;
-}
-.instagram-media > a { display: block; padding: 1rem; color: var(--ink); font-size: .85rem; text-decoration: none; }
-.instagram-post iframe.instagram-media { position: static !important; height: 620px !important; }
-.instagram-post-fallback { display: block; padding: .7rem .4rem .3rem; color: var(--ink); font-size: .75rem; text-align: center; text-decoration: none; }
-.instagram-post-fallback:hover { color: var(--accent); }
-.instagram-note { margin: 1rem 0 0; color: var(--muted); font-size: .78rem; }
-.instagram-note a { color: var(--ink); }
-.instagram-note a:hover { color: var(--accent); }
-.instagram-follow {
-  display: flex;
-  min-height: 7rem;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.4rem;
-  background: #f4f3ee;
-  text-decoration: none;
-}
+.instagram-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; }
+.instagram-post { min-width: 0; overflow: hidden; background: #f4f3ee; color: var(--ink); text-decoration: none; }
+.instagram-art { position: relative; display: block; overflow: hidden; aspect-ratio: 1; }
+.ig-room { background: linear-gradient(180deg, transparent 70%, #a88d6d 70%), linear-gradient(110deg, #e6dfd1 0 60%, #c9c4ae 60%); }
+.ig-texture { background: radial-gradient(ellipse at 75% 12%, #f0dfc7 0 20%, transparent 21%), linear-gradient(135deg, #ddd5c5 0 45%, #c2b49c 45% 72%, #a8ad97 72%); }
+.ig-green { background: linear-gradient(180deg, #e8e7db 0 68%, #b39a79 68%); }
+.ig-window { position: absolute; top: 10%; right: 12%; width: 32%; height: 43%; border: 6px solid #f6f1e8; background: linear-gradient(145deg, #c2d2ca, #f3e5cf); }
+.ig-sofa { position: absolute; bottom: 17%; left: 12%; width: 58%; height: 27%; border-radius: 22px 22px 7px 7px; background: #b38369; box-shadow: inset 0 -8px #946b56, 0 8px 0 -4px #72533e; }
+.ig-sofa::before { position: absolute; top: 0; bottom: 0; left: 50%; border-left: 2px solid #ffffff55; content: ""; }
+.ig-leaf, .ig-tall-plant, .ig-small-plant { position: absolute; right: 14%; bottom: 15%; width: 8px; height: 30%; border-radius: 100%; background: #68785b; }
+.ig-leaf::before, .ig-leaf::after, .ig-tall-plant::before, .ig-tall-plant::after, .ig-small-plant::before, .ig-small-plant::after { position: absolute; top: 3px; left: -9px; width: 17px; height: 31px; border-radius: 100% 0 100% 0; background: #879574; content: ""; transform: rotate(-35deg); }
+.ig-leaf::after, .ig-tall-plant::after, .ig-small-plant::after { top: 17px; left: 2px; background: #637653; transform: rotate(45deg) scale(.8); }
+.ig-chair { position: absolute; bottom: 14%; left: 21%; width: 42%; height: 43%; border-radius: 50% 50% 12px 12px; background: #8c765f; box-shadow: inset 0 -8px #715d49, 0 7px 0 -4px #594b3b; }
+.ig-side-table { position: absolute; right: 13%; bottom: 17%; width: 23%; height: 5px; background: #715d49; box-shadow: 0 5px 0 -1px #715d49, 0 28px 0 -2px #715d49; }
+.ig-vase { position: absolute; right: 18%; bottom: 25%; width: 13%; height: 18%; border-radius: 40% 40% 30% 30%; background: #e7d8c0; }
+.ig-tall-plant { right: 38%; bottom: 31%; height: 42%; transform: scale(1.35); }
+.ig-pot { position: absolute; bottom: 10%; left: 35%; width: 30%; height: 25%; border-radius: 5px 5px 22px 22px; background: #b47453; }
+.ig-small-plant { right: 27%; bottom: 14%; height: 18%; transform: scale(.8); }
+.instagram-caption { display: block; padding: .85rem .9rem 1rem; }
+.instagram-caption strong, .instagram-caption small { display: block; }
+.instagram-caption strong { font-size: .86rem; font-weight: 600; }
+.instagram-caption small { margin-top: .22rem; color: var(--muted); font-size: .73rem; line-height: 1.45; }
+.instagram-post:hover .instagram-art { filter: saturate(1.08); }
+.instagram-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; }
+.instagram-note { margin: 0; color: var(--muted); font-size: .75rem; }
+.instagram-follow { flex: 0 0 auto; color: var(--ink); font-size: .8rem; text-decoration: none; }
 .instagram-follow:hover { color: var(--accent); }
-.instagram-follow-icon { display: grid; width: 2.5rem; height: 2.5rem; flex: 0 0 2.5rem; place-items: center; border: 1px solid var(--line); border-radius: 50%; }
-.instagram-follow strong, .instagram-follow small { display: block; }
-.instagram-follow strong { font-size: .9rem; }
-.instagram-follow small { margin-top: .3rem; color: var(--muted); font-size: .78rem; line-height: 1.5; }
 
 @media (max-width: 899px) {
   .carousel-card { flex-basis: calc((100% - .85rem) / 2); }
@@ -228,7 +238,10 @@ figcaption > span:first-child { margin-right: .55rem; color: var(--accent); font
   .card-copy { padding: 1rem; }
   .section-index { font-size: .6rem; }
   .instagram-section { margin-top: 3rem; }
-  .instagram-grid { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+  .instagram-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+  .instagram-caption { padding: .7rem; }
+  .instagram-caption small { font-size: .68rem; }
+  .instagram-footer { align-items: flex-start; flex-direction: column; }
 }
 
 @media (prefers-reduced-motion: reduce) {
