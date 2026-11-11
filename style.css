@@ -173,16 +173,18 @@ figcaption > span:first-child { margin-right: .55rem; color: var(--accent); font
 .instagram-profile { margin-bottom: 1.5rem; color: var(--ink); font-size: .85rem; text-decoration: none; }
 .instagram-profile:hover { color: var(--accent); }
 .instagram-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 1.25rem; }
+.instagram-post { min-width: 0; padding: .5rem; border: 1px solid var(--line); background: white; }
 .instagram-media {
+  display: block;
   width: 100% !important;
   min-width: 0 !important;
   max-width: 100% !important;
-  margin: 0 !important;
-  border: 1px solid var(--line) !important;
-  border-radius: 2px !important;
-  background: white;
+  margin: 0 auto !important;
 }
-.instagram-media > a { display: block; padding: 1.2rem; color: var(--ink); font-size: .85rem; text-decoration: none; }
+.instagram-media > a { display: block; padding: 1rem; color: var(--ink); font-size: .85rem; text-decoration: none; }
+.instagram-post iframe.instagram-media { position: static !important; height: 620px !important; }
+.instagram-post-fallback { display: block; padding: .7rem .4rem .3rem; color: var(--ink); font-size: .75rem; text-align: center; text-decoration: none; }
+.instagram-post-fallback:hover { color: var(--accent); }
 .instagram-follow {
   display: flex;
   min-height: 7rem;
