@@ -150,10 +150,16 @@ figcaption > span:first-child { margin-right: .55rem; color: var(--accent); font
 .section-index { padding-bottom: 1.5rem; color: var(--muted); font-size: .7rem; letter-spacing: .12em; }
 .track { display: flex; gap: .85rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .track::-webkit-scrollbar { display: none; }
-.carousel-card { flex: 0 0 calc((100% - 1.7rem) / 3); min-height: 200px; padding: 1.15rem; scroll-snap-align: start; background: #f4f3ee; }
+.carousel-card { flex: 0 0 calc((100% - 1.7rem) / 3); min-height: 200px; padding: 0; scroll-snap-align: start; background: #f4f3ee; }
+.card-image-link { display: block; overflow: hidden; aspect-ratio: 1.55; background: #f1f0e9; }
+.card-image { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.card-image-link:hover .card-image { transform: scale(1.035); }
+.card-copy { padding: 1rem 1.15rem 1.2rem; }
 .card-number { color: var(--accent); font-size: .68rem; font-weight: 700; letter-spacing: .12em; }
 .carousel-card h3 { margin: .6rem 0 .35rem; font: 500 1.08rem/1.35 var(--display); }
 .carousel-card p { margin: 0; color: #62645b; font-size: .82rem; line-height: 1.6; }
+.carousel-card h3 a { text-decoration: none; }
+.carousel-card h3 a:hover { text-decoration: underline; text-decoration-thickness: 1px; }
 .controls { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-top: .65rem; color: var(--muted); font-size: .75rem; }
 .controls[hidden] { display: none; }
 .controls button { padding: .45rem 0; border: 0; background: transparent; color: var(--ink); font: inherit; cursor: pointer; }
@@ -162,6 +168,35 @@ figcaption > span:first-child { margin-right: .55rem; color: var(--accent); font
 .magazine-cta { margin: 1.25rem 0 0; }
 .magazine-link { display: inline-flex; align-items: center; gap: .6rem; padding: .75rem 1rem; background: var(--ink); color: white; font-size: .82rem; text-decoration: none; }
 .magazine-link:hover { background: var(--accent); color: white; }
+
+.instagram-section { margin-top: 4.5rem; padding-top: 1.7rem; border-top: 1px solid var(--line); }
+.instagram-profile { margin-bottom: 1.5rem; color: var(--ink); font-size: .85rem; text-decoration: none; }
+.instagram-profile:hover { color: var(--accent); }
+.instagram-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 1.25rem; }
+.instagram-media {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 2px !important;
+  background: white;
+}
+.instagram-media > a { display: block; padding: 1.2rem; color: var(--ink); font-size: .85rem; text-decoration: none; }
+.instagram-follow {
+  display: flex;
+  min-height: 7rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem;
+  background: #f4f3ee;
+  text-decoration: none;
+}
+.instagram-follow:hover { color: var(--accent); }
+.instagram-follow-icon { display: grid; width: 2.5rem; height: 2.5rem; flex: 0 0 2.5rem; place-items: center; border: 1px solid var(--line); border-radius: 50%; }
+.instagram-follow strong, .instagram-follow small { display: block; }
+.instagram-follow strong { font-size: .9rem; }
+.instagram-follow small { margin-top: .3rem; color: var(--muted); font-size: .78rem; line-height: 1.5; }
 
 @media (max-width: 899px) {
   .carousel-card { flex-basis: calc((100% - .85rem) / 2); }
@@ -184,10 +219,15 @@ figcaption > span:first-child { margin-right: .55rem; color: var(--accent); font
   .carousel-section { margin-top: 3rem; }
   .track { gap: .7rem; }
   .carousel-card { flex-basis: 88%; min-height: 185px; padding: 1.1rem; }
+  .carousel-card { padding: 0; }
+  .card-copy { padding: 1rem; }
   .section-index { font-size: .6rem; }
+  .instagram-section { margin-top: 3rem; }
+  .instagram-grid { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; }
+  .card-image { transition: none; }
 }
